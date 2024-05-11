@@ -1,0 +1,9 @@
+100x100 # Rozmer obrazku
+
+10,10
+R-10,10
+R-10,B-10
+10,B-10
+
+# Mel by byt vykreslen ctverec o rozmerech 80x80px
+# a vypsana hodnota obvodu 320px
