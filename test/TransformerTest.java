@@ -1,7 +1,11 @@
 import Model.Dimensions;
 import Model.Point;
+import Model.Polygon;
 import Service.Transformer;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -97,5 +101,26 @@ public class TransformerTest {
         assertThrows(IllegalArgumentException.class, () -> {
             transformer.transformPoint("5-10", dimensions);
         });
+    }
+
+    @Test
+    public void testTransformPolygon() {
+        Transformer transformer = new Transformer();
+        List<String> lines = new ArrayList<>();
+        lines.add("10x20");
+        lines.add("0,10");
+        lines.add("C5,C-5");
+        lines.add("R-5,B-5");
+
+        Polygon expected = new Polygon(new Dimensions(10, 20), List.of(new Point(0, 10), new Point(10, 5), new Point(5, 15), new Point(0, 10)));
+        Polygon actual = transformer.transformPolygon(lines);
+
+        assertEquals(expected.getDimensions().getWidth(), actual.getDimensions().getWidth());
+        assertEquals(expected.getDimensions().getHeight(), actual.getDimensions().getHeight());
+
+        for (int i = 0; i < expected.getPoints().size() - 1; i++) {
+            assertEquals(expected.getPoints().get(i).getX(), actual.getPoints().get(i).getX());
+            assertEquals(expected.getPoints().get(i).getY(), actual.getPoints().get(i).getY());
+        }
     }
 }

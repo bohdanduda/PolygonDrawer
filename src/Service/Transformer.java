@@ -2,8 +2,23 @@ package Service;
 
 import Model.Dimensions;
 import Model.Point;
+import Model.Polygon;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Transformer {
+    public Polygon transformPolygon(List<String> lines) {
+        Dimensions dimensions = transformDimensions(lines.getFirst());
+        List<Point> points = new ArrayList<>();
+
+        for (int i = 1; i < lines.size(); i++) {
+            points.add(transformPoint(lines.get(i), dimensions));
+        }
+
+        return new Polygon(dimensions, points);
+    }
+
     public Dimensions transformDimensions(String dimensionsInText) {
         String[] dimensions = dimensionsInText.split("x");
 
