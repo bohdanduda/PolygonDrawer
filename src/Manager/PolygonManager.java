@@ -39,4 +39,8 @@ public class PolygonManager {
     public void drawPolygonPicture() {
         this.polygonDrawer.drawPolygonPicture(this.polygon);
     }
+
+    public Polygon getPolygon() {
+        return this.polygon;
+    }
 }

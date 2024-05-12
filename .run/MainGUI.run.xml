@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MainGUI" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="GUI.MainGUI" />
+    <module name="PolygonDrawer_BohdanDuda" />
+    <option name="VM_PARAMETERS" value="--module-path &quot;C:\javafx-sdk-21.0.3\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.util=ALL-UNNAMED" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
